@@ -18,7 +18,7 @@ def stats_value(path):
     df_mean = Decimal(df['Close'].mean()).quantize(Decimal("0.0001"), rounding = "ROUND_HALF_UP")
     df_variance = Decimal(df['Close'].std()).quantize(Decimal("0.0001"), rounding = "ROUND_HALF_UP")
     df_skewness = Decimal(stats.skew(df['Close'])).quantize(Decimal("0.0001"), rounding = "ROUND_HALF_UP")
-    df_kurtosis = Decimal(stats.skew(stats.kurtosis(df['Close']))).quantize(Decimal("0.0001"), rounding = "ROUND_HALF_UP")
+    df_kurtosis = Decimal(stats.kurtosis(df['Close'])).quantize(Decimal("0.0001"), rounding = "ROUND_HALF_UP")
     
     
     print('Sample mean:', df_mean)
