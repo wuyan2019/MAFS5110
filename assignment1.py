@@ -3,6 +3,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 from decimal import Decimal
+import pandas as pd 
+import numpy as np
+
+def plot_ma(data_path):
+    IBM = pd.read_csv(data_path)
+    IBM['MA35'] = IBM['Close'].rolling(window=35).mean()
+    IBM["MA100"] = IBM['Close'].rolling(window=100).mean()
+    IBM['Trade_date'] = pd.to_datetime(IBM['Date'],format="%Y-%m-%d")
+    IBM.plot(x='Trade_date',y=['Close','MA35','MA100'],figsize=(20,10))
 
 
 def check_log_returns(data_path):
@@ -38,5 +47,6 @@ def stats_value(path):
     print('Sample Adjusted excess kurtosis:', df_kurtosis)
 
 
+plot_ma('IBM.csv')
 check_log_returns('IBM.csv')
 stats_value('IBM.csv')
