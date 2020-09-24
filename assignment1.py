@@ -5,6 +5,7 @@ from scipy import stats
 from decimal import Decimal
 import pandas as pd 
 import numpy as np
+%matplotlib inline
 
 def plot_ma(data_path):
     IBM = pd.read_csv(data_path)
